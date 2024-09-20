@@ -1,12 +1,19 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import { Button } from "antd";
+import Homepage from "./pages/Homepage";
+import FormPage from "./pages/FormPage";
+import FavPage from "./pages/FavPage";
 
 function App() {
   return (
-    <div className="App">
-      <Button>test</Button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Homepage />} />
+        <Route path="form" element={<FormPage />} />
+        <Route path="favorite" element={<FavPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

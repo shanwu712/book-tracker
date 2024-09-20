@@ -1,0 +1,27 @@
+.homepage {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.search {
+  display: flex;
+  margin: 1rem auto 0;
+  width: 85%;
+}
+
+.sort {
+  display: flex;
+  margin: 1rem auto 0 10%;
+  align-items: center;
+  gap: 0.5rem;
+  h4 {
+    margin: 0;
+  }
+}
+
+.content {
+  display: flex;
+  margin-top: 0;
+  justify-content: center;
+}

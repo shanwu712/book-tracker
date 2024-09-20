@@ -1,0 +1,11 @@
+.fav {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+}
