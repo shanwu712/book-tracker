@@ -1,44 +1,48 @@
 {
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "bookName": "The Great Gatsby",
       "description": "A novel written by American author F. Scott Fitzgerald that explores themes of decadence, idealism, resistance to change, social upheaval, and excess.",
       "review": {
         "name": "Alice Johnson",
         "mail": "alice.johnson@example.com",
         "comment": "A timeless classic with a deep and reflective story. The portrayal of the Jazz Age is captivating."
-      }
+      },
+      "image": "https://picsum.photos/seed/gatsby/200/300"
     },
     {
-      "id": 2,
+      "id": "2",
       "bookName": "To Kill a Mockingbird",
       "description": "A novel by Harper Lee published in 1960. It is a coming-of-age story about racial injustice and moral growth in the American South.",
       "review": {
         "name": "Bob Smith",
         "mail": "bob.smith@example.com",
         "comment": "A powerful narrative that addresses serious issues with warmth and humor. Essential reading."
-      }
+      },
+      "image": "https://picsum.photos/seed/mockingbird/200/300"
     },
     {
-      "id": 3,
+      "id": "3",
       "bookName": "1984",
       "description": "A dystopian social science fiction novel and cautionary tale, written by the English writer George Orwell. It examines the dangers of totalitarianism.",
       "review": {
         "name": "Carol Williams",
         "mail": "carol.williams@example.com",
         "comment": "A chilling portrayal of a dystopian future. The themes are more relevant today than ever."
-      }
+      },
+      "image": "https://picsum.photos/seed/1984/200/300"
     },
     {
-      "id": 4,
+      "id": "4",
       "bookName": "Pride and Prejudice",
       "description": "A romantic novel of manners written by Jane Austen. It depicts the emotional development of the protagonist, Elizabeth Bennet, and her relationship with Mr. Darcy.",
       "review": {
         "name": "David Brown",
         "mail": "david.brown@example.com",
         "comment": "A delightful and insightful exploration of relationships and societal norms. Austen's wit is unmatched."
-      }
+      },
+      "image": "https://picsum.photos/seed/pride/200/300"
     }
   ]
 }

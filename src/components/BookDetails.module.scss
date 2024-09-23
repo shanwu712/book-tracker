@@ -1,0 +1,29 @@
+.detail {
+  display: flex;
+  justify-content: center;
+}
+
+.detailContent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem auto 3rem;
+}
+
+.review {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    width: 70%;
+
+    p {
+      margin: 0;
+    }
+    h4 {
+      margin: 0;
+    }
+  }
+}

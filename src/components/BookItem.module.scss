@@ -1,0 +1,11 @@
+.book {
+  height: 16rem;
+  width: 12rem;
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3rem;
+}
