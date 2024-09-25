@@ -12,7 +12,7 @@ interface Book {
   bookName: string;
   description: string;
   image: string;
-  review: {
+  review?: {
     name: string;
     mail: string;
     comment: string;
@@ -63,11 +63,13 @@ export default function Homepage() {
       </div>
 
       <Content className={styles.content}>
-        {books.length === 0 ? (
-          <p>Loading...</p>
-        ) : (
-          sortedBooks.map((book) => <BookItem book={book} key={book.id} />)
-        )}
+        <div className={styles.book}>
+          {books.length === 0 ? (
+            <p>Loading...</p>
+          ) : (
+            sortedBooks.map((book) => <BookItem book={book} key={book.id} />)
+          )}
+        </div>
       </Content>
     </Layout>
   );

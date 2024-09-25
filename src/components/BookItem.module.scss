@@ -9,3 +9,18 @@
   text-overflow: ellipsis;
   max-height: 3rem;
 }
+
+.heartIcon {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  font-size: 22px;
+  z-index: 1;
+  color: rgb(244, 192, 219);
+  cursor: pointer;
+
+  transition: transform 0.3s;
+  &:hover {
+    transform: translate(-3px, -3px);
+  }
+}

@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./BookItem.module.scss";
 import { Card } from "antd";
-import { HeartOutlined } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import BookDetails from "./BookDetails";
+import { relative } from "path";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../slice/FavoritesSlice";
+import { RootState } from "../store";
 
 interface Book {
   id: string;
   bookName: string;
   description: string;
-  image: string;
-  review: {
+  image?: string;
+  review?: {
     name: string;
     mail: string;
     comment: string;
@@ -21,18 +25,40 @@ interface BookItemProp {
 }
 
 export default function BookItem({ book }: BookItemProp) {
-  const { id, bookName, description, image } = book;
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [liked, setLiked] = useState(false);
 
-  const showModal = () => {
-    console.log("open");
+  const { id, bookName, description, image } = book;
+
+  const dispatch = useDispatch();
+  const favorites = useSelector(
+    (state: RootState) => state.favorites.favorites
+  );
+
+  useEffect(() => {
+    const isFavorite = favorites.some((fav) => fav.id === id);
+    setLiked(isFavorite);
+  }, [favorites, id]);
+
+  function showModal() {
     setIsModalVisible(true);
-  };
+  }
 
-  const handleClose = () => {
-    console.log("Modal is closing...");
+  function handleClose() {
     setIsModalVisible(false);
-  };
+  }
+
+  function toggleLike(e: any) {
+    e.stopPropagation();
+    const newLikedState = !liked;
+    setLiked(newLikedState);
+
+    if (newLikedState) {
+      dispatch(addFavorite(book));
+    } else {
+      dispatch(removeFavorite(id));
+    }
+  }
 
   const { Meta } = Card;
 
@@ -41,13 +67,25 @@ export default function BookItem({ book }: BookItemProp) {
       <div className={styles.book} onClick={showModal}>
         <Card
           cover={
-            <img
-              alt="example"
-              src={image}
-              style={{
-                height: 165,
-              }}
-            />
+            <div style={{ position: "relative" }}>
+              <img
+                alt="example"
+                src={image}
+                style={{
+                  height: 165,
+                  position: "relative",
+                  width: "100%",
+                  borderRadius: "inherit",
+                }}
+              />
+              <div className={styles.heartIcon} onClick={toggleLike}>
+                {liked ? (
+                  <HeartFilled className={styles.filledHeart} />
+                ) : (
+                  <HeartOutlined className={styles.outlineHeart} />
+                )}
+              </div>
+            </div>
           }
           hoverable={true}
         >

@@ -25,7 +25,15 @@
   flex-direction: row;
   justify-content: center;
   gap: 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 90%;
   margin: 1rem auto 0;
+}
+
+.book {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
 }

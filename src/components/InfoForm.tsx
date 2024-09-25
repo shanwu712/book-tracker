@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./InfoForm.module.scss";
-import { Button, Form, Input, Space } from "antd";
+import { Button, Form, Input, Space, message } from "antd";
+import { v4 as uuidv4 } from "uuid";
 
 const layout = {
   labelCol: { span: 8 },
@@ -10,25 +11,60 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-export default function InfoForm() {
+interface InfoFormProps {
+  onSubmit: (data: any) => void;
+}
+
+export default function InfoForm({ onSubmit }: InfoFormProps) {
+  const [imageUrl, setImageUrl] = useState("");
   const [form] = Form.useForm();
 
-  const onFinish = (values: any) => {
-    console.log(values);
+  function handleFinish(values: any) {
+    if (!isValidUrl(imageUrl)) {
+      message.error("Invalid URL!");
+      return;
+    }
+
+    const data = { ...values, imageUrl, id: uuidv4() };
+
+    onSubmit(data);
+  }
+
+  const isValidUrl = (urlString: string) => {
+    try {
+      new URL(urlString);
+      return true;
+    } catch (e) {
+      return false;
+    }
   };
 
-  const onReset = () => {
+  function onReset() {
     form.resetFields();
-  };
+    setImageUrl("");
+  }
+
+  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setImageUrl(e.target.value);
+  }
+
   return (
     <Form
       {...layout}
       form={form}
       name="control-hooks"
-      onFinish={onFinish}
+      onFinish={handleFinish}
       style={{ maxWidth: 600 }}
       className={styles.form}
     >
+      {imageUrl && (
+        <img
+          src={imageUrl}
+          alt="preview"
+          style={{ maxWidth: "140px", marginTop: 8 }}
+          className={styles.preview}
+        />
+      )}
       <Form.Item
         name="Book Name"
         label="Book Name"
@@ -42,6 +78,13 @@ export default function InfoForm() {
         rules={[{ required: true }]}
       >
         <Input />
+      </Form.Item>
+      <Form.Item label="Image URL">
+        <Input
+          placeholder="URL"
+          value={imageUrl}
+          onChange={handleImageChange}
+        />
       </Form.Item>
       <Form.Item {...tailLayout}>
         <Space>
