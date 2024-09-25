@@ -67,7 +67,9 @@ export default function Homepage() {
           {books.length === 0 ? (
             <p>Loading...</p>
           ) : (
-            sortedBooks.map((book) => <BookItem book={book} key={book.id} />)
+            sortedBooks.map((book) => (
+              <BookItem book={book} setBooks={setBooks} key={book.id} />
+            ))
           )}
         </div>
       </Content>

@@ -10,11 +10,15 @@ import {
 import React, { useState } from "react";
 import { HeartOutlined, UserOutlined } from "@ant-design/icons";
 import styles from "./BookDetails.module.scss";
+import axios from "axios";
+
+const BASE_URL = "http://localhost:5002/books";
 
 interface BookModalProps {
   open: boolean;
   onClose: () => void;
   book: Book;
+  setBooks: any;
 }
 
 interface Book {
@@ -29,7 +33,12 @@ interface Book {
   };
 }
 
-export default function BookDetails({ onClose, open, book }: BookModalProps) {
+export default function BookDetails({
+  onClose,
+  open,
+  book,
+  setBooks,
+}: BookModalProps) {
   const {
     id,
     bookName,
@@ -38,15 +47,25 @@ export default function BookDetails({ onClose, open, book }: BookModalProps) {
     review: { name, mail, comment } = {},
   } = book;
 
-  function handleDelete() {
+  async function handleDelete() {
     onClose();
 
-    notification.success({
-      message: `"${bookName}" is removed successfully!`,
-      duration: 3,
-      placement: "top",
-      closeIcon: false,
-    });
+    try {
+      await axios.delete(`http://localhost:5002/books/${id}`);
+
+      setBooks((prevBooks: Book[]) =>
+        prevBooks.filter((book) => book.id !== id)
+      );
+
+      notification.success({
+        message: `"${bookName}" is removed successfully!`,
+        duration: 3,
+        placement: "top",
+        closeIcon: false,
+      });
+    } catch (error) {
+      console.error("Error deleting book:", error);
+    }
   }
 
   return (

@@ -22,9 +22,10 @@ interface Book {
 
 interface BookItemProp {
   book: Book;
+  setBooks?: any;
 }
 
-export default function BookItem({ book }: BookItemProp) {
+export default function BookItem({ book, setBooks }: BookItemProp) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [liked, setLiked] = useState(false);
 
@@ -103,6 +104,7 @@ export default function BookItem({ book }: BookItemProp) {
         open={isModalVisible}
         onClose={handleClose}
         book={book}
+        setBooks={setBooks}
       ></BookDetails>
     </>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./InfoForm.module.scss";
 import { Button, Form, Input, Space, message } from "antd";
 import { v4 as uuidv4 } from "uuid";
+import TextArea from "antd/es/input/TextArea";
 
 const layout = {
   labelCol: { span: 8 },
@@ -16,16 +17,16 @@ interface InfoFormProps {
 }
 
 export default function InfoForm({ onSubmit }: InfoFormProps) {
-  const [imageUrl, setImageUrl] = useState("");
+  const [image, setImage] = useState("");
   const [form] = Form.useForm();
 
   function handleFinish(values: any) {
-    if (!isValidUrl(imageUrl)) {
+    if (!isValidUrl(image)) {
       message.error("Invalid URL!");
       return;
     }
 
-    const data = { ...values, imageUrl, id: uuidv4() };
+    const data = { ...values, image, id: uuidv4() };
 
     onSubmit(data);
   }
@@ -41,11 +42,11 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
 
   function onReset() {
     form.resetFields();
-    setImageUrl("");
+    setImage("");
   }
 
   function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setImageUrl(e.target.value);
+    setImage(e.target.value);
   }
 
   return (
@@ -57,34 +58,26 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
       style={{ maxWidth: 600 }}
       className={styles.form}
     >
-      {imageUrl && (
+      {image && (
         <img
-          src={imageUrl}
+          src={image}
           alt="preview"
           style={{ maxWidth: "140px", marginTop: 8 }}
           className={styles.preview}
         />
       )}
-      <Form.Item
-        name="Book Name"
-        label="Book Name"
-        rules={[{ required: true }]}
-      >
+      <Form.Item name="bookName" label="Book Name" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
       <Form.Item
-        name="Description"
+        name="description"
         label="Description"
         rules={[{ required: true }]}
       >
-        <Input />
+        <TextArea style={{ maxHeight: "100px" }} />
       </Form.Item>
-      <Form.Item label="Image URL">
-        <Input
-          placeholder="URL"
-          value={imageUrl}
-          onChange={handleImageChange}
-        />
+      <Form.Item label="image">
+        <Input placeholder="URL" value={image} onChange={handleImageChange} />
       </Form.Item>
       <Form.Item {...tailLayout}>
         <Space>
