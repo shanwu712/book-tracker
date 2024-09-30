@@ -12,21 +12,28 @@
       "image": "https://picsum.photos/seed/mockingbird/200/300"
     },
     {
-      "id": "7",
-      "bookName": "1984",
-      "description": "A dystopian social science fiction novel and cautionary tale, written by the English writer George Orwell. It examines the dangers of totalitarianism.",
-      "review": {
-        "name": "Carol Williams",
-        "mail": "carol.williams@example.com",
-        "comment": "A chilling portrayal of a dystopian future. The themes are more relevant today than ever."
-      },
-      "image": "https://picsum.photos/seed/1984/200/300"
+      "id": "34774122-d4b0-4a32-a05a-7ac9ac8f770b",
+      "bookName": "FOURTH WING",
+      "description": "Violet Sorrengail is urged by the commanding general, who also is her mother, to become a candidate for the elite dragon riders.",
+      "image": "https://s.eslite.com/b2b/newItem/2023/06/14/202306141423182682371566002-01.jpg"
     },
     {
-      "id": "7ee73bef-e7cc-4b2a-a765-bb7e2b3d4d38",
-      "bookName": "Harry Potter",
-      "description": "This article is about the novel series. For the character, see Harry Potter (character). For the film series, see Harry Potter (film series). For the franchise, see Wizarding World. For the universe, see Fictional universe of Harry Potter. For other uses, see Harry Potter (disambiguation).",
-      "image": "https://play-lh.googleusercontent.com/xo2HfLoAszntYndTjrUhZXqa7xCmeSkSXxcsPPeQx3-cRrzYSGmbjSwKO2F7o-RWuJhy"
+      "id": "259b43ac-5b53-43ba-8357-f7a40ece0562",
+      "bookName": "A Song of Ice and Fire",
+      "description": "A Song of Ice and Fire is a series of high fantasy novels by the American author George R. R. Martin. He began writing the first volume, A Game of Thrones, in 1991, and published it in 1996. Martin, who originally envisioned the series as a trilogy, has so far released five out of seven planned volumes. The fifth and most recent entry in the series, A Dance with Dragons, was published in 2011. Martin continues to write the sixth novel, titled The Winds of Winter. A seventh novel, A Dream of Spring, is planned to follow.",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg/220px-A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg"
+    },
+    {
+      "id": "96698d02-bfdd-4d1a-a2aa-d6909bf8eb4a",
+      "bookName": "Pride and Prejudice",
+      "description": "Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language. Jane Austen called this brilliant work \"her own darling child\" and its vivacious heroine, Elizabeth Bennet, \"as delightful a creature as ever appeared in print.\" The romantic clash between the opinionated Elizabeth and her proud beau, Mr. Darcy, is a splendid performance of civilized sparring. And Jane Austen's radiant wit sparkles as her characters dance a delicate quadrille of flirtation and intrigue, making this book the most superb comedy of manners of Regency England.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg"
+    },
+    {
+      "id": "eecca9c8-e2ac-42f8-9eb8-e711d8077356",
+      "bookName": "Twilight",
+      "description": "About three things I was absolutely positive.\n\nFirst, Edward was a vampire.\n\nSecond, there was a part of him - and I didn't know how dominant that part might be - that thirsted for my blood.\n\nAnd third, I was unconditionally and irrevocably in love with him.\n\nDeeply seductive and extraordinarily suspenseful, Twilight is a love story with bite.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700522826i/41865.jpg"
     }
   ]
 }

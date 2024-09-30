@@ -11,6 +11,8 @@ import React, { useState } from "react";
 import { HeartOutlined, UserOutlined } from "@ant-design/icons";
 import styles from "./BookDetails.module.scss";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { removeFavorite } from "../slice/FavoritesSlice";
 
 const BASE_URL = "http://localhost:5002/books";
 
@@ -47,6 +49,8 @@ export default function BookDetails({
     review: { name, mail, comment } = {},
   } = book;
 
+  const dispatch = useDispatch();
+
   async function handleDelete() {
     onClose();
 
@@ -56,6 +60,8 @@ export default function BookDetails({
       setBooks((prevBooks: Book[]) =>
         prevBooks.filter((book) => book.id !== id)
       );
+
+      dispatch(removeFavorite(id));
 
       notification.success({
         message: `"${bookName}" is removed successfully!`,

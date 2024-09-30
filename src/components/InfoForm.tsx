@@ -29,6 +29,7 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
     const data = { ...values, image, id: uuidv4() };
 
     onSubmit(data);
+    onReset();
   }
 
   const isValidUrl = (urlString: string) => {

@@ -18,14 +18,12 @@ interface Data {
 
 export default function FormPage() {
   async function handleSubmit(formData: Data) {
-    console.log("Form Data:", formData);
-
     try {
       const res = await axios.post(BASE_URL, formData);
-      message.success("Book Added successfully!");
+      message.success(`${formData.bookName} Added successfully!`);
     } catch (error) {
       console.error("Error submitting data:", error);
-      message.error("Failed to add book.");
+      message.error("Failed to add the book.");
     }
   }
 
