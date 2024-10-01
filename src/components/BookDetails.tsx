@@ -29,9 +29,8 @@ interface Book {
   description: string;
   image?: string;
   review?: {
-    name: string;
-    mail: string;
-    comment: string;
+    name?: string;
+    comment?: string;
   };
 }
 
@@ -41,13 +40,7 @@ export default function BookDetails({
   book,
   setBooks,
 }: BookModalProps) {
-  const {
-    id,
-    bookName,
-    description,
-    image,
-    review: { name, mail, comment } = {},
-  } = book;
+  const { id, bookName, description, image, review } = book;
 
   const dispatch = useDispatch();
 
@@ -96,15 +89,15 @@ export default function BookDetails({
           <p>{description}</p>
         </div>
 
-        <div className={styles.review}>
-          <Avatar shape="square" size={64} icon={<UserOutlined />} />
-          <span>
-            <h4>
-              {name} ({mail})
-            </h4>
-            <p>{comment}</p>
-          </span>
-        </div>
+        {review?.name !== "" && review?.comment !== "" && (
+          <div className={styles.review}>
+            <Avatar size={64}>{review?.name?.split(" ")[0]}</Avatar>
+            <span>
+              <h4>{review?.name}</h4>
+              <p>{review?.comment}</p>
+            </span>
+          </div>
+        )}
       </Modal>
     </>
   );

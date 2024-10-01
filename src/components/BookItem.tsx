@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./BookItem.module.scss";
 import { Card } from "antd";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import BookDetails from "./BookDetails";
-import { relative } from "path";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../slice/FavoritesSlice";
 import { RootState } from "../store";
+
+const { Meta } = Card;
 
 interface Book {
   id: string;
@@ -15,7 +16,6 @@ interface Book {
   image?: string;
   review?: {
     name: string;
-    mail: string;
     comment: string;
   };
 }
@@ -61,8 +61,6 @@ export default function BookItem({ book, setBooks }: BookItemProp) {
     }
   }
 
-  const { Meta } = Card;
-
   return (
     <>
       <div className={styles.book} onClick={showModal}>
@@ -77,8 +75,10 @@ export default function BookItem({ book, setBooks }: BookItemProp) {
                   position: "relative",
                   width: "100%",
                   borderRadius: "inherit",
+                  objectFit: "cover",
                 }}
               />
+
               <div className={styles.heartIcon} onClick={toggleLike}>
                 {liked ? (
                   <HeartFilled className={styles.filledHeart} />

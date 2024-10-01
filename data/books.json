@@ -1,39 +1,70 @@
 {
   "books": [
     {
-      "id": "6",
-      "bookName": "To Kill a Mockingbird",
-      "description": "A novel by Harper Lee published in 1960. It is a coming-of-age story about racial injustice and moral growth in the American South.",
+      "id": "c38ef75b-b5aa-4d12-b459-907338d22878",
+      "bookName": "Divergent",
+      "description": "In Beatrice Prior's dystopian Chicago world, society is divided into five factions, each dedicated to the cultivation of a particular virtue—Candor (the honest), Abnegation (the selfless), Dauntless (the brave), Amity (the peaceful), and Erudite (the intelligent). On an appointed day of every year, all sixteen-year-olds must select the faction to which they will devote the rest of their lives. For Beatrice, the decision is between staying with her family and being who she really is—she can't have both. So she makes a choice that surprises everyone, including herself.",
+      "name": "Saori",
+      "comment": "I felt like I could feel what the author was thinking. Regardless of whether or not this is true, this is what I felt the author was saying to me through my copy of Divergent (minorish, and a few obvious spoilers to follow, major spoiler hidden under cut, you’ve been warned):",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1618526890i/13335037.jpg",
       "review": {
-        "name": "Bob Smith",
-        "mail": "bob.smith@example.com",
-        "comment": "A powerful narrative that addresses serious issues with warmth and humor. Essential reading."
-      },
-      "image": "https://picsum.photos/seed/mockingbird/200/300"
+        "name": "Saori",
+        "comment": "I felt like I could feel what the author was thinking. Regardless of whether or not this is true, this is what I felt the author was saying to me through my copy of Divergent (minorish, and a few obvious spoilers to follow, major spoiler hidden under cut, you’ve been warned):"
+      }
     },
     {
-      "id": "34774122-d4b0-4a32-a05a-7ac9ac8f770b",
-      "bookName": "FOURTH WING",
-      "description": "Violet Sorrengail is urged by the commanding general, who also is her mother, to become a candidate for the elite dragon riders.",
-      "image": "https://s.eslite.com/b2b/newItem/2023/06/14/202306141423182682371566002-01.jpg"
+      "id": "ec7f50eb-c229-4a3c-ba08-5db2df61c50f",
+      "bookName": "Lord of the Flies",
+      "description": "At the dawn of the next world war, a plane crashes on an uncharted island, stranding a group of schoolboys. At first, with no adult supervision, their freedom is something to celebrate; this far from civilization the boys can do anything they want. Anything. They attempt to forge their own society, failing, however, in the face of terror, sin and evil. And as order collapses, as strange howls echo in the night, as terror begins its reign, the hope of adventure seems as far from reality as the hope of being rescued. Labeled a parable, an allegory, a myth, a morality tale, a parody, a political treatise, even a vision of the apocalypse, Lord of the Flies is perhaps our most memorable novel about “the end of innocence, the darkness of man’s heart.”",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327869409i/7624.jpg",
+      "review": {
+        "name": ""
+      }
     },
     {
-      "id": "259b43ac-5b53-43ba-8357-f7a40ece0562",
-      "bookName": "A Song of Ice and Fire",
-      "description": "A Song of Ice and Fire is a series of high fantasy novels by the American author George R. R. Martin. He began writing the first volume, A Game of Thrones, in 1991, and published it in 1996. Martin, who originally envisioned the series as a trilogy, has so far released five out of seven planned volumes. The fifth and most recent entry in the series, A Dance with Dragons, was published in 2011. Martin continues to write the sixth novel, titled The Winds of Winter. A seventh novel, A Dream of Spring, is planned to follow.",
-      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg/220px-A_Song_of_Ice_and_Fire_book_collection_box_set_cover.jpg"
+      "id": "244d6fb4-9285-49c8-8a3d-f8fd81516a7e",
+      "bookName": "Romeo and Juliet",
+      "description": "In Romeo and Juliet, Shakespeare creates a violent world, in which two young people fall in love. It is not simply that their families disapprove; the Montagues and the Capulets are engaged in a blood feud.",
+      "name": "Alex",
+      "comment": "Tragically, Juliet is a Hatfield, and Romeo is a McCoy. Their families have been feuding over a McCoy pig that was killed during a Hatfield moonshine run decades ago. Totally true. I swear.\nNeedless to say, tensions are still running high.\nSo. Shhhhh. They gotta keep their love on the down low.\nAnd it is love, dammit! I mean, they've stared at each other a whole bunch and had like two conversations.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1629680008i/18135.jpg",
+      "review": {
+        "name": "Alex",
+        "comment": "Tragically, Juliet is a Hatfield, and Romeo is a McCoy. Their families have been feuding over a McCoy pig that was killed during a Hatfield moonshine run decades ago. Totally true. I swear.\nNeedless to say, tensions are still running high.\nSo. Shhhhh. They gotta keep their love on the down low.\nAnd it is love, dammit! I mean, they've stared at each other a whole bunch and had like two conversations."
+      }
     },
     {
-      "id": "96698d02-bfdd-4d1a-a2aa-d6909bf8eb4a",
-      "bookName": "Pride and Prejudice",
-      "description": "Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language. Jane Austen called this brilliant work \"her own darling child\" and its vivacious heroine, Elizabeth Bennet, \"as delightful a creature as ever appeared in print.\" The romantic clash between the opinionated Elizabeth and her proud beau, Mr. Darcy, is a splendid performance of civilized sparring. And Jane Austen's radiant wit sparkles as her characters dance a delicate quadrille of flirtation and intrigue, making this book the most superb comedy of manners of Regency England.",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg"
+      "id": "4452f91e-7c51-44f1-9d52-0eacc179a897",
+      "bookName": "The Help",
+      "description": "Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1622355533i/4667024.jpg",
+      "review": {
+        "name": ""
+      }
     },
     {
-      "id": "eecca9c8-e2ac-42f8-9eb8-e711d8077356",
-      "bookName": "Twilight",
-      "description": "About three things I was absolutely positive.\n\nFirst, Edward was a vampire.\n\nSecond, there was a part of him - and I didn't know how dominant that part might be - that thirsted for my blood.\n\nAnd third, I was unconditionally and irrevocably in love with him.\n\nDeeply seductive and extraordinarily suspenseful, Twilight is a love story with bite.",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700522826i/41865.jpg"
+      "id": "3553d90e-1bfc-4271-94a9-aa2b6d4e9e48",
+      "bookName": "Gone with the Wind",
+      "description": "Scarlett O'Hara, the beautiful, spoiled daughter of a well-to-do Georgia plantation owner, must use every means at her disposal to claw her way out of the poverty she finds herself in after Sherman's March to the Sea.",
+      "name": "Saori",
+      "comment": "Margaret Mitchell was a racist and in 1936, 70 years after the Civil War, she wrote a thousand-page love letter to racism. If you'd like to hear why slavery was terrific and black people are inferior to whites and they liked being slaves, here is your epic. If that sounds unpleasant, you won't like Gone With the Wind.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1551144577i/18405.jpg",
+      "review": {
+        "name": "Saori",
+        "comment": "Margaret Mitchell was a racist and in 1936, 70 years after the Civil War, she wrote a thousand-page love letter to racism. If you'd like to hear why slavery was terrific and black people are inferior to whites and they liked being slaves, here is your epic. If that sounds unpleasant, you won't like Gone With the Wind."
+      }
+    },
+    {
+      "id": "e0407862-d24f-4c71-a681-c515698cc4ff",
+      "bookName": "The Little Prince",
+      "description": "A pilot stranded in the desert awakes one morning to see, standing before him, the most extraordinary little fellow. \"Please,\" asks the stranger, \"draw me a sheep.\" And the pilot realizes that when life's events are too difficult to understand, there is no choice but to succumb to their mysteries. He pulls out pencil and paper... And thus begins this wise and enchanting fable that, in teaching the secret of what is really important in life, has changed forever the world for its readers.",
+      "name": "Clarence Kuo",
+      "comment": "'You do understand that the Little Prince died?' my mother asked as carefully and gently as only adults who know that loss of innocence can be crushing but is brutally necessary can do.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1367545443i/157993.jpg",
+      "review": {
+        "name": "Clarence Kuo",
+        "comment": "'You do understand that the Little Prince died?' my mother asked as carefully and gently as only adults who know that loss of innocence can be crushing but is brutally necessary can do."
+      }
     }
   ]
 }

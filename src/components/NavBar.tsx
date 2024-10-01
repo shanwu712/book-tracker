@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./NavBar.module.scss";
 import { Menu, MenuProps } from "antd";
 import { NavLink, useLocation } from "react-router-dom";

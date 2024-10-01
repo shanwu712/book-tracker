@@ -6,8 +6,17 @@
 
 .content {
   display: flex;
-  margin-top: 3rem;
   justify-content: center;
   flex-wrap: wrap;
   gap: 3rem;
+  align-items: center;
+}
+
+.empty {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
 }

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Homepage.module.scss";
-import { Layout, Input, Select } from "antd";
+import { Layout, Input, Select, Spin } from "antd";
 import NavBar from "../components/NavBar";
 import BookItem from "../components/BookItem";
 
@@ -14,7 +14,6 @@ interface Book {
   image: string;
   review?: {
     name: string;
-    mail: string;
     comment: string;
   };
 }
@@ -22,6 +21,7 @@ interface Book {
 export default function Homepage() {
   const [books, setBooks] = useState<Book[]>([]);
   const [sortOrder, setSortOrder] = useState("A-Z");
+  const [query, setQuery] = useState("");
 
   useEffect(function () {
     async function fetchBooks() {
@@ -36,7 +36,11 @@ export default function Homepage() {
     fetchBooks();
   }, []);
 
-  const sortedBooks = [...books].sort((a, b) => {
+  const filteredBooks = books.filter((book) =>
+    book.bookName.toLowerCase().includes(query.toLowerCase())
+  );
+
+  const sortedBooks = [...filteredBooks].sort((a, b) => {
     if (sortOrder === "A-Z") {
       return a.bookName.localeCompare(b.bookName);
     } else {
@@ -47,7 +51,12 @@ export default function Homepage() {
   return (
     <Layout className={styles.homepage}>
       <NavBar />
-      <Input placeholder="Search..." className={styles.search} />
+      <Input
+        placeholder="Search..."
+        className={styles.search}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
 
       <div className={styles.sort}>
         <h4>Sort By:</h4>
@@ -65,7 +74,7 @@ export default function Homepage() {
       <Content className={styles.content}>
         <div className={styles.book}>
           {books.length === 0 ? (
-            <p>Loading...</p>
+            <Spin size="large" />
           ) : (
             sortedBooks.map((book) => (
               <BookItem book={book} setBooks={setBooks} key={book.id} />
