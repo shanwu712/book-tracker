@@ -77,7 +77,12 @@ export default function Homepage() {
             <Spin size="large" />
           ) : (
             sortedBooks.map((book) => (
-              <BookItem book={book} setBooks={setBooks} key={book.id} />
+              <BookItem
+                book={book}
+                setBooks={setBooks}
+                key={book.id}
+                showSubBtn={true}
+              />
             ))
           )}
         </div>

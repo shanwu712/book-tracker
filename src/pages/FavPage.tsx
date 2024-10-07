@@ -43,7 +43,9 @@ export default function FavPage() {
             </Button>
           </div>
         ) : (
-          favorites.map((book) => <BookItem book={book} key={book.id} />)
+          favorites.map((book) => (
+            <BookItem book={book} key={book.id} showSubBtn={false} />
+          ))
         )}
       </Content>
     </Layout>
