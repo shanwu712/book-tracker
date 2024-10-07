@@ -1,4 +1,4 @@
-import { Alert, Avatar, Button, Input, Modal, message } from "antd";
+import { Avatar, Button, Input, Modal, message } from "antd";
 import styles from "./BookDetails.module.scss";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,26 +43,32 @@ export default function BookDetails({
     (state: RootState) => state.favorites.favorites
   );
 
-  const { id, bookName, description, image, review } = book;
+  const { id, bookName, image, review } = book;
 
   const dispatch = useDispatch();
 
   async function handleDelete() {
-    onClose();
+    Modal.confirm({
+      title: `Are you sure you want to remove "${bookName}"?`,
+      okText: "Yes",
+      okType: "danger",
+      cancelText: "No",
+      onOk: async function () {
+        try {
+          await axios.delete(`${BASE_URL}/${id}`);
 
-    try {
-      await axios.delete(`${BASE_URL}/${id}`);
+          setBooks((prevBooks: Book[]) =>
+            prevBooks.filter((book) => book.id !== id)
+          );
 
-      setBooks((prevBooks: Book[]) =>
-        prevBooks.filter((book) => book.id !== id)
-      );
+          dispatch(removeFavorite(id));
 
-      dispatch(removeFavorite(id));
-
-      message.success(`${bookName} is removed successfully!`);
-    } catch (error) {
-      console.error("Error deleting book:", error);
-    }
+          message.success(`${bookName} is removed successfully!`);
+        } catch (error) {
+          console.error("Error deleting book:", error);
+        }
+      },
+    });
   }
 
   async function handleEdit() {
