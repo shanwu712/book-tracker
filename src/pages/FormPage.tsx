@@ -3,6 +3,8 @@ import styles from "./FormPage.module.scss";
 import { Layout, message } from "antd";
 import NavBar from "../components/NavBar";
 import InfoForm from "../components/InfoForm";
+import { useDispatch } from "react-redux";
+import { addBook } from "../slice/bookSlice";
 
 const { Content } = Layout;
 
@@ -16,9 +18,13 @@ interface Data {
 }
 
 export default function FormPage() {
+  const dispatch = useDispatch();
+
   async function handleSubmit(formData: Data) {
     try {
       const res = await axios.post(BASE_URL, formData);
+
+      dispatch(addBook(res.data));
       message.success(`${formData.bookName} Added successfully!`);
     } catch (error) {
       console.error("Error submitting data:", error);

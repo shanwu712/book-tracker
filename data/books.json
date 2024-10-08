@@ -1,45 +1,15 @@
 {
   "books": [
     {
-      "id": "ec7f50eb-c229-4a3c-ba08-5db2df61c50f",
-      "bookName": "Lord of the Flies",
-      "description": "At the dawn of the next world war, a plane crashes on an uncharted island, stranding a group of schoolboys. At first, with no adult supervision, their freedom is something to celebrate; this far from civilization the boys can do anything they want. Anything. They attempt to forge their own society, failing, however, in the face of terror, sin and evil. And as order collapses, as strange howls echo in the night, as terror begins its reign, the hope of adventure seems as far from reality as the hope of being rescued. Labeled a parable, an allegory, a myth, a morality tale, a parody, a political treatise, even a vision of the apocalypse, Lord of the Flies is perhaps our most memorable novel about “the end of innocence, the darkness of man’s heart.”",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327869409i/7624.jpg",
+      "id": "1ad69b93-0dd7-4abd-9cb5-8bcf98d3cac8",
+      "bookName": "The Hunger Games",
+      "description": "n the ruins of a place once known as North America lies the nation of Panem, a shining Capitol surrounded by twelve outlying districts. The Capitol is harsh and cruel and keeps the districts in line by forcing them all to send one boy and one girl between the ages of twelve and eighteen to participate in the annual Hunger Games, a fight to the death on live TV.",
+      "name": "Saori Wu",
+      "comment": "Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it a",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1586722975i/2767052.jpg",
       "review": {
-        "name": ""
-      }
-    },
-    {
-      "id": "244d6fb4-9285-49c8-8a3d-f8fd81516a7e",
-      "bookName": "Romeo and Juliet",
-      "description": "In Romeo and Juliet, Shakespeare creates a violent world, in which two young people fall in love. It is not simply that their families disapprove; the Montagues and the Capulets are engaged in a blood feud.",
-      "name": "Alex",
-      "comment": "Tragically, Juliet is a Hatfield, and Romeo is a McCoy. Their families have been feuding over a McCoy pig that was killed during a Hatfield moonshine run decades ago. Totally true. I swear.\nNeedless to say, tensions are still running high.\n",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1629680008i/18135.jpg",
-      "review": {
-        "name": "Alex",
-        "comment": "Tragically, Juliet is a Hatfield, and Romeo is a McCoy. Their families have been feuding over a McCoy pig that was killed during a Hatfield moonshine run decades ago. Totally true. I swear.\nNeedless to say, tensions are still running high.\n"
-      }
-    },
-    {
-      "id": "4452f91e-7c51-44f1-9d52-0eacc179a897",
-      "bookName": "The Help",
-      "description": "Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1622355533i/4667024.jpg",
-      "review": {
-        "name": ""
-      }
-    },
-    {
-      "id": "a9c8a678-7d60-44e2-82fa-db854f7192a1",
-      "bookName": "The Giving Tree",
-      "description": "\nEvery day the boy would come to the tree to eat her apples, swing from her branches, or slide down her trunk...and the tree was happy. But as the boy grew older he began to want more from the tree, and the tree gave and gave and gave.",
-      "name": "Saori wu",
-      "comment": "Okay, this some motherfuckin' fucked-up shit right here. The Giving Tree is the straight-up wack story of how this selfish little ass-faced prick kicks it with this full-on saintly tree. Ever'thin' fine for a while, y'all, with the lil' prick all gettin' up in there an' sayin' to the tree, \"Yeah, you know you mah bitch,\" but then all of a sudden, this jumped-up prick go through ",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1725807591i/370493.jpg",
-      "review": {
-        "name": "Saori wu",
-        "comment": "Okay, this some motherfuckin' fucked-up shit right here. The Giving Tree is the straight-up wack story of how this selfish little ass-faced prick kicks it with this full-on saintly tree. Ever'thin' fine for a while, y'all, with the lil' prick all gettin' up in there an' sayin' to the tree, \"Yeah, you know you mah bitch,\" but then all of a sudden, this jumped-up prick go through "
+        "name": "Saori Wu",
+        "comment": "Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it a"
       }
     }
   ]

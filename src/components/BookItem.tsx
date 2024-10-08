@@ -15,8 +15,8 @@ interface Book {
   description: string;
   image?: string;
   review?: {
-    name: string;
-    comment: string;
+    name?: string;
+    comment?: string;
   };
 }
 
@@ -26,7 +26,7 @@ interface BookItemProp {
   showSubBtn?: boolean;
 }
 
-export default function BookItem({ book, setBooks, showSubBtn }: BookItemProp) {
+export default function BookItem({ book, showSubBtn }: BookItemProp) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [liked, setLiked] = useState(false);
 
@@ -105,7 +105,7 @@ export default function BookItem({ book, setBooks, showSubBtn }: BookItemProp) {
         open={isModalVisible}
         onClose={handleClose}
         book={book}
-        setBooks={setBooks}
+        // setBooks={setBooks}
         showSubBtn={showSubBtn}
       ></BookDetails>
     </>

@@ -92,6 +92,7 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
               placeholder="URL"
               value={image}
               onChange={handleImageChange}
+              required
             />
           </Form.Item>
         </Space>

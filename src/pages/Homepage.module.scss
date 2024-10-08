@@ -37,3 +37,13 @@
   justify-content: center;
   gap: 3rem;
 }
+
+.empty {
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  top: 30%;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}

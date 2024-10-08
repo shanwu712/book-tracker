@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./Homepage.module.scss";
-import { Layout, Input, Select, Spin } from "antd";
+import { Layout, Input, Select, Spin, Button } from "antd";
 import NavBar from "../components/NavBar";
 import BookItem from "../components/BookItem";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { setBook } from "../slice/bookSlice";
+import { Link } from "react-router-dom";
 
 const { Content } = Layout;
 const BASE_URL = "http://localhost:5002/books";
@@ -11,32 +15,37 @@ interface Book {
   id: string;
   bookName: string;
   description: string;
-  image: string;
+  image?: string;
   review?: {
-    name: string;
-    comment: string;
+    name?: string;
+    comment?: string;
   };
 }
 
 export default function Homepage() {
-  const [books, setBooks] = useState<Book[]>([]);
   const [sortOrder, setSortOrder] = useState("A-Z");
   const [query, setQuery] = useState("");
 
-  useEffect(function () {
-    async function fetchBooks() {
-      try {
-        const res = await fetch(BASE_URL);
-        const data = await res.json();
-        setBooks(data);
-      } catch {
-        throw new Error("data fetching error");
-      }
-    }
-    fetchBooks();
-  }, []);
+  const dispatch = useDispatch();
+  const books = useSelector((state: RootState) => state.books.books);
 
-  const filteredBooks = books.filter((book) =>
+  useEffect(
+    function () {
+      async function fetchBooks() {
+        try {
+          const res = await fetch(BASE_URL);
+          const data = await res.json();
+          dispatch(setBook(data));
+        } catch {
+          throw new Error("data fetching error");
+        }
+      }
+      fetchBooks();
+    },
+    [dispatch]
+  );
+
+  const filteredBooks = books.filter((book: Book) =>
     book.bookName.toLowerCase().includes(query.toLowerCase())
   );
 
@@ -74,12 +83,17 @@ export default function Homepage() {
       <Content className={styles.content}>
         <div className={styles.book}>
           {books.length === 0 ? (
-            <Spin size="large" />
+            <div className={styles.empty}>
+              <h2>You have no books on your bookshelf yet...</h2>
+              <Button type="primary">
+                <Link to="/form">Go Add a new book📕</Link>
+              </Button>
+            </div>
           ) : (
             sortedBooks.map((book) => (
               <BookItem
                 book={book}
-                setBooks={setBooks}
+                //setBooks={setBooks}
                 key={book.id}
                 showSubBtn={true}
               />

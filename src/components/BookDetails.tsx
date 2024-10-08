@@ -4,7 +4,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { editFavBook, removeFavorite } from "../slice/FavoritesSlice";
 import { useState } from "react";
-import { editBook } from "../slice/bookSlice";
+import { deleteBook, editBook } from "../slice/bookSlice";
 import TextArea from "antd/es/input/TextArea";
 import { RootState } from "../store";
 const { confirm } = Modal;
@@ -15,7 +15,6 @@ interface BookModalProps {
   open: boolean;
   onClose: () => void;
   book: Book;
-  setBooks: any;
   showSubBtn?: boolean;
 }
 
@@ -34,7 +33,6 @@ export default function BookDetails({
   onClose,
   open,
   book,
-  setBooks,
   showSubBtn,
 }: BookModalProps) {
   const [editing, setEditing] = useState(false);
@@ -57,9 +55,7 @@ export default function BookDetails({
         try {
           await axios.delete(`${BASE_URL}/${id}`);
 
-          setBooks((prevBooks: Book[]) =>
-            prevBooks.filter((book) => book.id !== id)
-          );
+          dispatch(deleteBook(id));
 
           dispatch(removeFavorite(id));
 
@@ -76,17 +72,7 @@ export default function BookDetails({
       try {
         const res = await axios.put(`${BASE_URL}/${id}`, editedBook);
 
-        setBooks((prevBooks: Book[]) =>
-          prevBooks.map((book) => (book.id === id ? res.data : book))
-        );
-
         dispatch(editBook(res.data));
-
-        //not an ideal way
-        const isFavorite = favorites.some((fav) => fav.id === res.data.id);
-        if (isFavorite) {
-          dispatch(editFavBook(res.data));
-        }
       } catch (error) {
         console.error("Error editing book details", error);
       }
