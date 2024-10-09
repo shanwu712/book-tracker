@@ -15,16 +15,19 @@ interface Book {
   description: string;
   image?: string;
   review?: {
-    name: string;
-    mail: string;
-    comment: string;
+    name?: string;
+    comment?: string;
   };
 }
 
 export default function FavPage() {
-  const favorites: Book[] = useSelector(
-    (state: RootState) => state.favorites.favorites
+  const favorites: string[] = useSelector(
+    (state: RootState) => state.books.favorites
   );
+
+  const books: Book[] = useSelector((state: RootState) => state.books.books);
+
+  const likedBooks = books.filter((book) => favorites.includes(book.id));
 
   return (
     <Layout className={styles.fav}>
@@ -43,7 +46,7 @@ export default function FavPage() {
             </Button>
           </div>
         ) : (
-          favorites.map((book) => (
+          likedBooks.map((book) => (
             <BookItem book={book} key={book.id} showSubBtn={false} />
           ))
         )}

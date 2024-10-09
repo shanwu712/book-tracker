@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import favoritesReducer from "./slice/FavoritesSlice";
+
 import booksReducer from "./slice/bookSlice";
 import storage from "redux-persist/lib/storage";
 import {
@@ -18,11 +18,8 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, favoritesReducer);
-
 const store = configureStore({
   reducer: {
-    favorites: persistedReducer,
     books: booksReducer,
   },
   middleware: (getDefaultMiddleware) =>

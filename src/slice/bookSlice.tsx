@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface Book {
   id: string;
@@ -13,12 +13,12 @@ interface Book {
 
 interface BooksState {
   books: Book[];
-  ids: string[];
+  favorites: string[];
 }
 
 const initialState: BooksState = {
   books: [],
-  ids: [],
+  favorites: [],
 };
 
 interface ActionPayload {
@@ -64,8 +64,21 @@ const bookSlice = createSlice({
         }
       }
     },
+    addFavorite: (state, action: PayloadAction<string>) => {
+      state.favorites.push(action.payload);
+    },
+    removeFavorite: (state, action: PayloadAction<string>) => {
+      state.favorites = state.favorites.filter((id) => id !== action.payload);
+    },
   },
 });
 
-export const { setBook, addBook, deleteBook, editBook } = bookSlice.actions;
+export const {
+  setBook,
+  addBook,
+  deleteBook,
+  editBook,
+  addFavorite,
+  removeFavorite,
+} = bookSlice.actions;
 export default bookSlice.reducer;

@@ -1,15 +1,39 @@
 {
   "books": [
     {
-      "id": "1ad69b93-0dd7-4abd-9cb5-8bcf98d3cac8",
-      "bookName": "The Hunger Games",
-      "description": "n the ruins of a place once known as North America lies the nation of Panem, a shining Capitol surrounded by twelve outlying districts. The Capitol is harsh and cruel and keeps the districts in line by forcing them all to send one boy and one girl between the ages of twelve and eighteen to participate in the annual Hunger Games, a fight to the death on live TV.",
-      "name": "Saori Wu",
-      "comment": "Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it a",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1586722975i/2767052.jpg",
+      "id": "165a9a68-7cae-4ef4-84ce-174ede0bcacb",
+      "bookName": "The Book Thief",
+      "description": "By her brother's graveside, Liesel's life is changed when she picks up a single object, partially hidden in the snow. It is The Gravedigger's Handbook, left behind there by accident, and it is her first act of book thievery. So begins a love affair with books and words, as Liesel, with the help of her accordian-playing foster father, learns to read. Soon she is stealing books from Nazi book-burnings, the mayor's wife's library, wherever there are books to be found.",
+      "name": "saori wu",
+      "comment": "I've read a lot of positive and negative reviews for this book. I can see why people wouldn't like it - I really can. Perhaps because I took a lot out of it ",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1522157426i/19063.jpg",
       "review": {
-        "name": "Saori Wu",
-        "comment": "Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it a"
+        "name": "saori wu",
+        "comment": "I've read a lot of positive and negative reviews for this book. I can see why people wouldn't like it - I really can. Perhaps because I took a lot out of it "
+      }
+    },
+    {
+      "id": "181c7a34-a7c6-4ba7-a94f-1e026dbf36d3",
+      "bookName": "Pride and Prejudice",
+      "description": "Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language. Jane Austen called this brilliant work \"her own darling child\" and its vivacious heroine, Elizabeth Bennet, \"as delightful a creature as ever appeared in print.\" The romantic clash between the opinionated Elizabeth and her",
+      "name": "Alex",
+      "comment": "Jane Austen was an English novelist known primarily for her six novels, which implicitly interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage for the pursuit of favourable social ",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320399351i/1885.jpg",
+      "review": {
+        "name": "Alex",
+        "comment": "Jane Austen was an English novelist known primarily for her six novels, which implicitly interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage for the pursuit of favourable social "
+      }
+    },
+    {
+      "id": "bb0f047a-0ad7-4a56-9e60-6cecb96b0ea6",
+      "bookName": "The Fault in Our Stars",
+      "description": "Jane Austen was an English novelist known primarily for her six novels, which implicitly interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage for the pursuit of favourable social standing and economic",
+      "name": "saori",
+      "comment": "Jane Austen was an English novelist known primarily for her six novels, which implicitly interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage for the pursuit of favourable social standing and economic",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1660273739i/11870085.jpg",
+      "review": {
+        "name": "saori",
+        "comment": "Jane Austen was an English novelist known primarily for her six novels, which implicitly interpret, critique, and comment upon the British landed gentry at the end of the 18th century. Austen's plots often explore the dependence of women on marriage for the pursuit of favourable social standing and economic"
       }
     }
   ]

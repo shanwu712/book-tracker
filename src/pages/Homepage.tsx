@@ -25,6 +25,7 @@ interface Book {
 export default function Homepage() {
   const [sortOrder, setSortOrder] = useState("A-Z");
   const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
   const books = useSelector((state: RootState) => state.books.books);
@@ -32,12 +33,15 @@ export default function Homepage() {
   useEffect(
     function () {
       async function fetchBooks() {
+        setIsLoading(true);
         try {
           const res = await fetch(BASE_URL);
           const data = await res.json();
           dispatch(setBook(data));
         } catch {
           throw new Error("data fetching error");
+        } finally {
+          setIsLoading(false);
         }
       }
       fetchBooks();
@@ -81,25 +85,22 @@ export default function Homepage() {
       </div>
 
       <Content className={styles.content}>
-        <div className={styles.book}>
-          {books.length === 0 ? (
-            <div className={styles.empty}>
-              <h2>You have no books on your bookshelf yet...</h2>
-              <Button type="primary">
-                <Link to="/form">Go Add a new book📕</Link>
-              </Button>
-            </div>
-          ) : (
-            sortedBooks.map((book) => (
-              <BookItem
-                book={book}
-                //setBooks={setBooks}
-                key={book.id}
-                showSubBtn={true}
-              />
-            ))
-          )}
-        </div>
+        {isLoading ? (
+          <Spin />
+        ) : books.length === 0 ? (
+          <div className={styles.empty}>
+            <h2>You have no books on your bookshelf yet...</h2>
+            <Button type="primary">
+              <Link to="/form">Go Add a new book📕</Link>
+            </Button>
+          </div>
+        ) : (
+          <div className={styles.book}>
+            {sortedBooks.map((book) => (
+              <BookItem book={book} key={book.id} showSubBtn={true} />
+            ))}
+          </div>
+        )}
       </Content>
     </Layout>
   );

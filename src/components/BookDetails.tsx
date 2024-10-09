@@ -2,9 +2,9 @@ import { Avatar, Button, Input, Modal, message } from "antd";
 import styles from "./BookDetails.module.scss";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { editFavBook, removeFavorite } from "../slice/FavoritesSlice";
+
 import { useState } from "react";
-import { deleteBook, editBook } from "../slice/bookSlice";
+import { deleteBook, editBook, removeFavorite } from "../slice/bookSlice";
 import TextArea from "antd/es/input/TextArea";
 import { RootState } from "../store";
 const { confirm } = Modal;
@@ -37,9 +37,6 @@ export default function BookDetails({
 }: BookModalProps) {
   const [editing, setEditing] = useState(false);
   const [editedBook, setEditedBook] = useState(book);
-  const favorites = useSelector(
-    (state: RootState) => state.favorites.favorites
-  );
 
   const { id, bookName, image, review } = book;
 
@@ -57,27 +54,12 @@ export default function BookDetails({
 
           dispatch(deleteBook(id));
 
-          dispatch(removeFavorite(id));
-
           message.success(`${bookName} is removed successfully!`);
         } catch (error) {
           console.error("Error deleting book:", error);
         }
       },
     });
-  }
-
-  async function handleEdit() {
-    if (editing) {
-      try {
-        const res = await axios.put(`${BASE_URL}/${id}`, editedBook);
-
-        dispatch(editBook(res.data));
-      } catch (error) {
-        console.error("Error editing book details", error);
-      }
-    }
-    setEditing(!editing);
   }
 
   function handleInputChange(e: any) {
@@ -114,12 +96,25 @@ export default function BookDetails({
     }
   }
 
+  async function handleOk() {
+    if (editing) {
+      try {
+        const res = await axios.put(`${BASE_URL}/${id}`, editedBook);
+
+        dispatch(editBook(res.data));
+      } catch (error) {
+        console.error("Error editing book details", error);
+      }
+    }
+    setEditing(false);
+  }
+
   return (
     <>
       <Modal
         title={bookName}
         open={open}
-        onOk={handleClose}
+        onOk={handleOk}
         onCancel={handleClose}
         footer={(_, { OkBtn }) => (
           <>
@@ -128,9 +123,11 @@ export default function BookDetails({
                 <Button key="delete" onClick={handleDelete}>
                   Remove This Book
                 </Button>
-                <Button key="edit" onClick={handleEdit}>
-                  {editing ? "Confirm" : "Edit"}
-                </Button>
+                {!editing && (
+                  <Button key="edit" onClick={() => setEditing(true)}>
+                    Edit
+                  </Button>
+                )}
               </>
             )}
 

@@ -4,8 +4,9 @@ import { Card } from "antd";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import BookDetails from "./BookDetails";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../slice/FavoritesSlice";
+
 import { RootState } from "../store";
+import { addFavorite, removeFavorite } from "../slice/bookSlice";
 
 const { Meta } = Card;
 
@@ -28,19 +29,11 @@ interface BookItemProp {
 
 export default function BookItem({ book, showSubBtn }: BookItemProp) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [liked, setLiked] = useState(false);
 
   const { id, bookName, description, image } = book;
 
   const dispatch = useDispatch();
-  const favorites = useSelector(
-    (state: RootState) => state.favorites.favorites
-  );
-
-  useEffect(() => {
-    const isFavorite = favorites.some((fav) => fav.id === id);
-    setLiked(isFavorite);
-  }, [favorites, id]);
+  const favorites = useSelector((state: RootState) => state.books.favorites);
 
   function showModal() {
     setIsModalVisible(true);
@@ -50,15 +43,15 @@ export default function BookItem({ book, showSubBtn }: BookItemProp) {
     setIsModalVisible(false);
   }
 
+  const isLiked = favorites.some((book) => book === id);
+
   function toggleLike(e: any) {
     e.stopPropagation();
-    const newLikedState = !liked;
-    setLiked(newLikedState);
 
-    if (newLikedState) {
-      dispatch(addFavorite(book));
-    } else {
+    if (isLiked) {
       dispatch(removeFavorite(id));
+    } else {
+      dispatch(addFavorite(id));
     }
   }
 
@@ -81,7 +74,7 @@ export default function BookItem({ book, showSubBtn }: BookItemProp) {
               />
 
               <div className={styles.heartIcon} onClick={toggleLike}>
-                {liked ? (
+                {isLiked ? (
                   <HeartFilled className={styles.filledHeart} />
                 ) : (
                   <HeartOutlined className={styles.outlineHeart} />
