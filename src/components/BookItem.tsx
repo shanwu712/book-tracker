@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./BookItem.module.scss";
 import { Card } from "antd";
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
@@ -98,7 +98,6 @@ export default function BookItem({ book, showSubBtn }: BookItemProp) {
         open={isModalVisible}
         onClose={handleClose}
         book={book}
-        // setBooks={setBooks}
         showSubBtn={showSubBtn}
       ></BookDetails>
     </>

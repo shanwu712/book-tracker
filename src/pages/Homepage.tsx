@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./Homepage.module.scss";
 import { Layout, Input, Select, Spin, Button } from "antd";
 import NavBar from "../components/NavBar";
@@ -22,44 +22,49 @@ interface Book {
   };
 }
 
+enum SortOrder {
+  ASC = "A-Z",
+  DESC = "Z-A",
+}
+
 export default function Homepage() {
-  const [sortOrder, setSortOrder] = useState("A-Z");
+  const [sortOrder, setSortOrder] = useState(SortOrder.ASC);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const dispatch = useDispatch();
+
   const books = useSelector((state: RootState) => state.books.books);
 
-  useEffect(
-    function () {
-      async function fetchBooks() {
-        setIsLoading(true);
-        try {
-          const res = await fetch(BASE_URL);
-          const data = await res.json();
-          dispatch(setBook(data));
-        } catch {
-          throw new Error("data fetching error");
-        } finally {
-          setIsLoading(false);
-        }
+  useEffect(() => {
+    async function fetchBooks() {
+      setIsLoading(true);
+      try {
+        const res = await fetch(BASE_URL);
+        const data = await res.json();
+        dispatch(setBook(data));
+      } catch {
+        throw new Error("data fetching error");
+      } finally {
+        setIsLoading(false);
       }
-      fetchBooks();
-    },
-    [dispatch]
-  );
-
-  const filteredBooks = books.filter((book: Book) =>
-    book.bookName.toLowerCase().includes(query.toLowerCase())
-  );
-
-  const sortedBooks = [...filteredBooks].sort((a, b) => {
-    if (sortOrder === "A-Z") {
-      return a.bookName.localeCompare(b.bookName);
-    } else {
-      return b.bookName.localeCompare(a.bookName);
     }
-  });
+    fetchBooks();
+  }, [dispatch]);
+
+  const sortedBooks = useMemo(() => {
+    const filteredBooks = books.filter((book: Book) =>
+      book.bookName.toLowerCase().includes(query.toLowerCase())
+    );
+
+    return [...filteredBooks].sort((a, b) => {
+      if (sortOrder === SortOrder.ASC) {
+        return a.bookName.localeCompare(b.bookName);
+      } else {
+        return b.bookName.localeCompare(a.bookName);
+      }
+    });
+  }, [books, sortOrder, query]);
 
   return (
     <Layout className={styles.homepage}>
@@ -74,11 +79,11 @@ export default function Homepage() {
       <div className={styles.sort}>
         <h4>Sort By:</h4>
         <Select
-          defaultValue="A-Z"
+          defaultValue={SortOrder.ASC}
           style={{ width: 68, height: 27 }}
           options={[
-            { value: "A-Z", label: "A-Z" },
-            { value: "Z-A", label: "Z-A" },
+            { value: SortOrder.ASC, label: SortOrder.ASC },
+            { value: SortOrder.DESC, label: SortOrder.DESC },
           ]}
           onChange={setSortOrder}
         />

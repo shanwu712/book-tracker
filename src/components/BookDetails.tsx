@@ -1,12 +1,10 @@
-import { Avatar, Button, Input, Modal, message } from "antd";
+import { Avatar, Button, Modal, message } from "antd";
 import styles from "./BookDetails.module.scss";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { deleteBook, editBook, removeFavorite } from "../slice/bookSlice";
+import { deleteBook, editBook } from "../slice/bookSlice";
 import TextArea from "antd/es/input/TextArea";
-import { RootState } from "../store";
 const { confirm } = Modal;
 
 const BASE_URL = "http://localhost:5002/books";
@@ -105,6 +103,8 @@ export default function BookDetails({
       } catch (error) {
         console.error("Error editing book details", error);
       }
+    } else {
+      onClose();
     }
     setEditing(false);
   }

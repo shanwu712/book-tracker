@@ -74,7 +74,7 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
           <Form.Item
             name="bookName"
             label="Book Name"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Book name is required!" }]}
           >
             <Input />
           </Form.Item>
@@ -82,17 +82,20 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
           <Form.Item
             name="description"
             label="Description"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Description is required!" }]}
           >
             <TextArea style={{ maxHeight: "100px" }} />
           </Form.Item>
 
-          <Form.Item label="image">
+          <Form.Item
+            label="Image"
+            name="image"
+            rules={[{ required: true, message: "Image URL is required!" }]}
+          >
             <Input
               placeholder="URL"
               value={image}
               onChange={handleImageChange}
-              required
             />
           </Form.Item>
         </Space>
