@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import styles from "./InfoForm.module.scss";
-import { Avatar, Button, Form, Input, Space, message } from "antd";
+import { Button, Form, Input, Space, message } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import TextArea from "antd/es/input/TextArea";
 
 interface InfoFormProps {
   onSubmit: (data: any) => void;
+}
+
+interface Book {
+  id: string;
+  bookName: string;
+  description: string;
+  image?: string;
+  review?: {
+    id: string;
+    name: string;
+    comment: string;
+  }[];
 }
 
 const layout = {
@@ -15,7 +27,6 @@ const layout = {
 
 export default function InfoForm({ onSubmit }: InfoFormProps) {
   const [image, setImage] = useState("");
-  const [name, setName] = useState("");
   const [form] = Form.useForm();
 
   function handleFinish(values: any) {
@@ -24,12 +35,25 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
       return;
     }
 
-    const data = {
-      ...values,
-      image,
+    const name = values.name || "";
+    const comment = values.comment || "";
+
+    const data: Book = {
       id: uuidv4(),
-      review: { name: name, comment: values.comment },
+      description: values.description,
+      bookName: values.bookName,
+      image,
+
+      review: [],
     };
+
+    if (name.trim() !== "" && comment.trim() !== "") {
+      data?.review?.push({
+        id: uuidv4(),
+        name: name,
+        comment: comment,
+      });
+    }
 
     onSubmit(data);
     onReset();
@@ -101,14 +125,8 @@ export default function InfoForm({ onSubmit }: InfoFormProps) {
         </Space>
 
         <Space direction="vertical" className={styles.comment}>
-          <Avatar size="large" style={{ marginBottom: "14px" }}>
-            {name.split(" ")[0]}
-          </Avatar>
           <Form.Item name="name" label="User Name">
-            <Input
-              value={name || ""}
-              onChange={(e) => setName(e.target.value)}
-            />
+            <Input />
           </Form.Item>
           <Form.Item name="comment" label="Comment">
             <TextArea style={{ maxHeight: "75px" }} />

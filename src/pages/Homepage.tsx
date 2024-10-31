@@ -17,9 +17,9 @@ interface Book {
   description: string;
   image?: string;
   review?: {
-    name?: string;
-    comment?: string;
-  };
+    name: string;
+    comment: string;
+  }[];
 }
 
 enum SortOrder {
@@ -53,6 +53,10 @@ export default function Homepage() {
   }, [dispatch]);
 
   const sortedBooks = useMemo(() => {
+    if (!Array.isArray(books)) {
+      return [];
+    }
+
     const filteredBooks = books.filter((book: Book) =>
       book.bookName.toLowerCase().includes(query.toLowerCase())
     );
@@ -81,10 +85,10 @@ export default function Homepage() {
         <Select
           defaultValue={SortOrder.ASC}
           style={{ width: 68, height: 27 }}
-          options={[
-            { value: SortOrder.ASC, label: SortOrder.ASC },
-            { value: SortOrder.DESC, label: SortOrder.DESC },
-          ]}
+          options={Object.values(SortOrder).map((value) => ({
+            value: value,
+            label: value,
+          }))}
           onChange={setSortOrder}
         />
       </div>

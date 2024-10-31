@@ -6,9 +6,10 @@ interface Book {
   description: string;
   image?: string;
   review?: {
-    name?: string;
-    comment?: string;
-  };
+    id: string;
+    name: string;
+    comment: string;
+  }[];
 }
 
 interface BooksState {
@@ -16,25 +17,26 @@ interface BooksState {
   favorites: string[];
 }
 
-const initialState: BooksState = {
-  books: [],
-  favorites: [],
-};
-
 interface ActionPayload {
   id: string;
   bookName: string;
   description: string;
   image?: string;
   review?: {
-    name?: string;
-    comment?: string;
-  };
+    id: string;
+    name: string;
+    comment: string;
+  }[];
 }
 
 interface Action {
   payload: ActionPayload;
 }
+
+const initialState: BooksState = {
+  books: [],
+  favorites: [],
+};
 
 const bookSlice = createSlice({
   name: "book",
@@ -51,17 +53,36 @@ const bookSlice = createSlice({
       const index = action.payload;
       state.books = state.books.filter((book) => book.id !== index);
     },
-    editBook: (state, action: Action) => {
+    editBook: (state, action) => {
       const bookId = state.books.findIndex(
         (book) => book.id === action.payload.id
       );
       if (bookId !== -1) {
         state.books[bookId].description = action.payload.description;
-        if (action.payload.review && action.payload.review.comment) {
-          state.books[bookId].review = {
-            comment: action.payload.review.comment,
-          };
-        }
+      }
+    },
+    addReview: (state, action) => {
+      const bookId = state.books.findIndex(
+        (book) => book.id === action.payload.id
+      );
+      if (bookId !== -1) {
+        state.books[bookId].review = action.payload.review;
+      }
+    },
+    editReview: (state, action) => {
+      const bookId = state.books.findIndex(
+        (book) => book.id === action.payload.id
+      );
+      if (bookId !== -1) {
+        state.books[bookId].review = action.payload.review;
+      }
+    },
+    deleteReview: (state, action) => {
+      const bookId = state.books.findIndex(
+        (book) => book.id === action.payload.id
+      );
+      if (bookId !== -1) {
+        state.books[bookId].review = action.payload.review;
       }
     },
     addFavorite: (state, action: PayloadAction<string>) => {
@@ -80,5 +101,8 @@ export const {
   editBook,
   addFavorite,
   removeFavorite,
+  editReview,
+  addReview,
+  deleteReview,
 } = bookSlice.actions;
 export default bookSlice.reducer;

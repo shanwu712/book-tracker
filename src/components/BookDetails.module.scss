@@ -8,6 +8,17 @@
   align-items: center;
   gap: 2rem;
   margin: 1rem auto 3rem;
+  .detailBtn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: end;
+  }
+}
+
+.reviewBtn {
+  display: flex;
+  justify-self: end;
 }
 
 .review {

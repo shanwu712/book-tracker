@@ -15,6 +15,11 @@ interface Data {
   bookName: string;
   description: string;
   image: string;
+  review?: {
+    id: string;
+    name: string;
+    comment: string;
+  }[];
 }
 
 export default function FormPage() {
@@ -25,6 +30,7 @@ export default function FormPage() {
       const res = await axios.post(BASE_URL, formData);
 
       dispatch(addBook(res.data));
+      console.log(res.data);
       message.success(`${formData.bookName} Added successfully!`);
     } catch (error) {
       console.error("Error submitting data:", error);

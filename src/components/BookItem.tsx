@@ -16,9 +16,10 @@ interface Book {
   description: string;
   image?: string;
   review?: {
-    name?: string;
-    comment?: string;
-  };
+    id: string;
+    name: string;
+    comment: string;
+  }[];
 }
 
 interface BookItemProp {
@@ -95,6 +96,7 @@ export default function BookItem({ book, showSubBtn }: BookItemProp) {
         </Card>
       </div>
       <BookDetails
+        key={id}
         open={isModalVisible}
         onClose={handleClose}
         book={book}

@@ -15,9 +15,10 @@ interface Book {
   description: string;
   image?: string;
   review?: {
-    name?: string;
-    comment?: string;
-  };
+    id: string;
+    name: string;
+    comment: string;
+  }[];
 }
 
 export default function FavPage() {
