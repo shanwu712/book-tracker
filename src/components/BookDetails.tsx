@@ -52,12 +52,13 @@ export default function BookDetails({
   showSubBtn,
 }: BookModalProps) {
   const [editing, setEditing] = useState(false);
-  const [editedBook, setEditedBook] = useState(book);
+
   const [editingReviewIndex, setEditingReviewIndex] = useState<null | string>(
     null
   );
-  const { id, bookName, image, review } = book;
+  const { id, bookName, image, description, review } = book;
   const [form] = Form.useForm();
+  const [descriptionForm] = Form.useForm();
 
   const dispatch = useDispatch();
 
@@ -81,19 +82,15 @@ export default function BookDetails({
     });
   }
 
-  function handleEditDescription(e: any) {
-    const { name, value } = e.target;
-
-    setEditedBook((prevBook) => ({
-      ...prevBook,
-      [name]: value,
-    }));
-  }
-
   async function handleOk() {
     if (editing) {
       try {
-        const res = await axios.put(`${BASE_URL}/${id}`, editedBook);
+        const updatedBook = {
+          ...book,
+          description: descriptionForm.getFieldValue("description"),
+        };
+
+        const res = await axios.put(`${BASE_URL}/${id}`, updatedBook);
 
         dispatch(editBook(res.data));
       } catch (error) {
@@ -107,22 +104,15 @@ export default function BookDetails({
 
   async function handleAddOrEditReview(field: FormListFieldData) {
     const reviewData = form.getFieldValue("items")[field.name];
-    console.log("Current Reviews:", editedBook?.review);
 
-    const isExistingReview = editedBook?.review?.find(
-      (r) => r.id === reviewData.id
-    );
+    const isExistingReview = review?.find((r) => r.id === reviewData.id);
 
     const updatedBook = {
-      ...editedBook,
+      ...book,
       review: isExistingReview
-        ? editedBook?.review?.map((r) =>
-            r.id === reviewData.id ? reviewData : r
-          )
-        : [...(editedBook.review || []), reviewData],
+        ? review?.map((r) => (r.id === reviewData.id ? reviewData : r))
+        : [...(review || []), reviewData],
     };
-
-    setEditedBook(updatedBook);
 
     if (editingReviewIndex === reviewData.id) {
       if (isExistingReview) {
@@ -166,7 +156,7 @@ export default function BookDetails({
     );
 
     const updatedBook = {
-      ...editedBook,
+      ...book,
       review: updatedReviews,
     };
 
@@ -191,9 +181,6 @@ export default function BookDetails({
         title: "Incomplete editing! ",
         content: "Are you sure you want to finish editing without saving?",
         onOk() {
-          if (editing) {
-            setEditedBook(book);
-          }
           setEditing(false);
           setEditingReviewIndex(null);
           form.resetFields();
@@ -228,28 +215,29 @@ export default function BookDetails({
     >
       {editing ? (
         <div className={styles.detailContent}>
-          <img alt="example" src={editedBook.image} style={{ height: 170 }} />
-          <div className={styles.detailBtn}>
-            <TextArea
-              style={{
-                minHeight: "200px",
-                maxHeight: "none",
-                width: "330px",
-              }}
-              name="description"
-              defaultValue={editedBook.description}
-              onChange={handleEditDescription}
-            />
-            <Button onClick={handleOk} type="primary">
-              OK
-            </Button>
-          </div>
+          <img alt="example" src={book.image} style={{ height: 170 }} />
+          <Form form={descriptionForm}>
+            <div className={styles.detailBtn}>
+              <Form.Item name="description" initialValue={description}>
+                <TextArea
+                  style={{
+                    minHeight: "200px",
+                    maxHeight: "none",
+                    width: "330px",
+                  }}
+                />
+              </Form.Item>
+              <Button onClick={handleOk} type="primary">
+                OK
+              </Button>
+            </div>
+          </Form>
         </div>
       ) : (
         <div className={styles.detailContent}>
           <img alt="example" src={image} style={{ height: 170 }} />
           <div className={styles.detailBtn}>
-            <p>{editedBook.description}</p>
+            <p>{book.description}</p>
             {!editing && showSubBtn && (
               <Button
                 key="edit"
@@ -284,7 +272,7 @@ export default function BookDetails({
                   <Card
                     size="small"
                     title={`Review ${field.name + 1}`}
-                    style={{
+                    bodyStyle={{
                       display: "flex",
                       flexDirection: "column",
                     }}
@@ -343,7 +331,7 @@ export default function BookDetails({
                     {showSubBtn && (
                       <Button
                         type="primary"
-                        style={{ display: "flex", alignSelf: "end" }}
+                        style={{ alignSelf: "end" }}
                         disabled={
                           (editingReviewIndex !== null &&
                             editingReviewIndex !==
