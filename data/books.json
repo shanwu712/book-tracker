@@ -6,21 +6,16 @@
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1325861570i/170448.jpg",
       "review": [
         {
-          "id": "671d12de-baed-4fff-a2da-900d9c0ebc86",
-          "name": "saori",
-          "comment": "dfrr"
-        },
-        {
-          "id": "c815f7d5-fd68-4206-81f9-a49ef8db70bc",
-          "name": "Alex",
-          "comment": "not bad"
+          "id": "12fe064b-d5a2-4a5b-bea6-3af6090ee2f8",
+          "name": "Saori",
+          "comment": "not"
         }
       ],
       "description": "before he had finished a dozen chapters”) and why writers like Sylvia Plath and E.M. Forster, drawn to the complex and often contradictory open vein of the novel, went out of their way to "
     },
     {
       "id": "8119c329-e644-4797-bbcd-6c0d375b2f7e",
-      "description": "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different, and far more satisfying, listening to our hearts, of recognizing opportunity and learning to read the omens strewn along life's path, and, most im",
+      "description": "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different, ",
       "bookName": "Lord of the Flies",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483412266i/865.jpg",
       "review": [
@@ -36,7 +31,13 @@
       "description": "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different, and far more satisfying, listening to our hearts, of recognizing opportunity and learning to read the omens strewn along life's path, and, most importantly, to follow our dreams.\n",
       "bookName": "The Book Thief",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1411852091i/24280.jpg",
-      "review": []
+      "review": [
+        {
+          "id": "5f795dfb-1507-4635-afed-228f439208b6",
+          "name": "Alex",
+          "comment": "terrible"
+        }
+      ]
     },
     {
       "id": "510f7d77-a02d-44f9-9351-2946c1dca677",
@@ -47,19 +48,39 @@
     },
     {
       "id": "9c5bd9c9-a211-4f87-8038-e9a246bed05d",
-      "description": "This book expand your understanding of Gone with the Wind. Read through letters about the story and people.",
+      "description": "This book expand your understanding of Gone with the Wind. Read through letters about the story and people.dfghjk",
       "bookName": "Gone with the Wind Letters",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1337331017i/1129283.jpg",
       "review": [
         {
           "id": "60c54105-2445-49c0-9e19-af30aa9c07f7",
           "name": "Saori Wu",
-          "comment": "These letters are fascinating and reveal a humorous, insightful personality of the author of Gone with the Wind. Unfortunately, this edition was published in the 1970s and thus does not include Mitchell's correspondence with Benjamin Mays, nor her correspondence with Hattie McDaniel. Despite this, I loved reading this collection."
+          "comment": "These letters are fascinating and reveal a humorous, insightful personality of the author of Gone with the Wind. Unfortunately, this edition was published in the 1970s and thus does not include Mitchell's correspondence with Benjamin Mays, "
         },
         {
           "id": "ee747a3f-30dd-4be3-b86b-aec4ce96b308",
           "name": "Alex",
           "comment": "with Benjamin Mays, nor her correspondence with Hattie McDaniel. Despite this, I loved reading this collection."
+        }
+      ]
+    },
+    {
+      "id": "d3871da2-dc94-4d45-9870-c92059e07ceb",
+      "description": "„S-ar putea spune ca romanul Pe aripile vantului e unul dintre documentele cele mai ilustrative ale istoriei formarii unei natiuni. Transformarea insasi a mentalitatii unui personaj, cum e Scarlett O'Hara, simbolizeaza modificarea structurii sufletesti a tuturor celor hotarati sa mearga in sensul istoriei propriei tari.",
+      "bookName": "Pe aripile vântului, volumul 3",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1413106504i/23356977.jpg",
+      "review": []
+    },
+    {
+      "id": "d16bc925-9a55-41d3-bf26-66c4c2a0c220",
+      "description": "The world saw only one book by Margaret Mitchell published in her lifetime, the incomparable Gone With the Wind, the most popular novel in American history. Upon her death in 1949, her personal papers, almost all other writing, and even the original typescript of Gone With the Wind were destroyed. Now, sixty years later, the impossible has happened:",
+      "bookName": "Lost Laysen",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1389155878i/594429.jpg",
+      "review": [
+        {
+          "id": "a592b592-15f6-4507-ad77-d96b0017e5c6",
+          "name": "Danny",
+          "comment": "The world has another story from Margaret Mitchell. Better still, it's a delight, a fitting predecessor to America's most beloved epic novel. A spirited tale of love and honor on a doomed South Pacific island called Laysen, Lost Laysen would be justly praised as a charming effort by a remarkable young talent if it were its author's only work. "
         }
       ]
     }

@@ -17,18 +17,6 @@ interface BooksState {
   favorites: string[];
 }
 
-interface ActionPayload {
-  id: string;
-  bookName: string;
-  description: string;
-  image?: string;
-  review?: {
-    id: string;
-    name: string;
-    comment: string;
-  }[];
-}
-
 const initialState: BooksState = {
   books: [],
   favorites: [],
@@ -58,27 +46,38 @@ const bookSlice = createSlice({
       }
     },
     addReview: (state, action) => {
-      const bookId = state.books.findIndex(
-        (book) => book.id === action.payload.id
-      );
+      const { id, reviewData } = action.payload;
+
+      const bookId = state.books.findIndex((book) => book.id === id);
+
       if (bookId !== -1) {
-        state.books[bookId].review = action.payload.review;
+        state.books[bookId].review?.push(reviewData);
       }
     },
     editReview: (state, action) => {
-      const bookId = state.books.findIndex(
-        (book) => book.id === action.payload.id
-      );
+      const { id, reviewData } = action.payload;
+      const bookId = state.books.findIndex((book) => book.id === id);
       if (bookId !== -1) {
-        state.books[bookId].review = action.payload.review;
+        const reviews = state.books[bookId].review;
+
+        if (reviews) {
+          const reviewId = reviews.findIndex((r) => r.id === reviewData.id);
+
+          if (reviewId !== -1) {
+            reviews[reviewId] = reviewData;
+          }
+        }
       }
     },
     deleteReview: (state, action) => {
-      const bookId = state.books.findIndex(
-        (book) => book.id === action.payload.id
-      );
+      const { id, reviewId } = action.payload;
+
+      const bookId = state.books.findIndex((book) => book.id === id);
+
       if (bookId !== -1) {
-        state.books[bookId].review = action.payload.review;
+        state.books[bookId].review = state.books[bookId].review?.filter(
+          (r) => r.id !== reviewId
+        );
       }
     },
     addFavorite: (state, action: PayloadAction<string>) => {

@@ -121,7 +121,7 @@ export default function BookDetails({
         try {
           const res = await axios.put(`${BASE_URL}/${id}`, updatedBook);
           console.log(res.data);
-          dispatch(editReview(updatedBook));
+          dispatch(editReview({ id: id, reviewData: reviewData }));
         } catch (error) {
           console.error("Error editing review:", error);
         }
@@ -129,7 +129,7 @@ export default function BookDetails({
         try {
           const res = await axios.put(`${BASE_URL}/${id}`, updatedBook);
           console.log(res.data);
-          dispatch(addReview(updatedBook));
+          dispatch(addReview({ id: id, reviewData: reviewData }));
         } catch (error) {
           console.error("Error posting review:", error);
         }
@@ -169,7 +169,9 @@ export default function BookDetails({
         setEditingReviewIndex(null);
       }
       const res = await axios.put(`${BASE_URL}/${id}`, updatedBook);
-      dispatch(deleteReview(updatedBook));
+      dispatch(
+        deleteReview({ id: id, reviewId: currentReviews[field.name].id })
+      );
     } catch (error) {
       console.log("Error deleting review", error);
     }
