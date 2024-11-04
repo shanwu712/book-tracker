@@ -29,10 +29,6 @@ interface ActionPayload {
   }[];
 }
 
-interface Action {
-  payload: ActionPayload;
-}
-
 const initialState: BooksState = {
   books: [],
   favorites: [],

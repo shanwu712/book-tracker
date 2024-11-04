@@ -1,24 +1,6 @@
 {
   "books": [
     {
-      "id": "a72ae8f2-587f-4a95-83f5-8503be51b7c4",
-      "bookName": "Twilight",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700522826i/41865.jpg",
-      "review": [
-        {
-          "id": "ded8f06c-72bf-4d78-840d-1840206ee9c2",
-          "name": "ytgrf",
-          "comment": "mnbvcx"
-        },
-        {
-          "id": "f76809e1-c11f-4e53-81e7-5029cef8a378",
-          "name": "hgfd",
-          "comment": "mnbvcx"
-        }
-      ],
-      "description": "To put it differently: faced with the possibility of the novel as the culmination of a flawed—even failed—interpretation, one can only read Wuthering Heights with a kind of longing, with the desire to get close to something inconsolable, just beyond reach. Therein lies, the novel says, the potential for true"
-    },
-    {
       "id": "367adaed-6f8e-412f-b1f2-19d05d1a36f0",
       "bookName": "Animal Farm",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1325861570i/170448.jpg",
@@ -29,26 +11,57 @@
           "comment": "dfrr"
         },
         {
-          "id": "9dffa8c6-d085-42c1-a21a-fec4ce2c0395",
+          "id": "c815f7d5-fd68-4206-81f9-a49ef8db70bc",
           "name": "Alex",
-          "comment": "ertyui"
+          "comment": "not bad"
         }
       ],
-      "description": "before he had finished a dozen chapters”) and why writers like Sylvia Plath and E.M. Forster, drawn to the complex and often contradictory open vein of the novel, went out of their way to reject such eas"
-    },
-    {
-      "id": "e9dba801-3a6a-42b6-a896-a1b4c19af182",
-      "description": "At the centre of this novel is the passionate love between Catherine Earnshaw and Heathcliff - recounted with such emotional intensity that a plain tale of the Yorkshire moors acquires the depth and simplicity of ancie",
-      "bookName": "Wuthering Heights",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388212715i/6185.jpg",
-      "review": []
+      "description": "before he had finished a dozen chapters”) and why writers like Sylvia Plath and E.M. Forster, drawn to the complex and often contradictory open vein of the novel, went out of their way to "
     },
     {
       "id": "8119c329-e644-4797-bbcd-6c0d375b2f7e",
-      "description": "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different, and far more satisfying, listening to our hearts, of recognizing opportunity and learning to read the omens strewn along life's path, and, most importantly, t",
+      "description": "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different, and far more satisfying, listening to our hearts, of recognizing opportunity and learning to read the omens strewn along life's path, and, most im",
       "bookName": "Lord of the Flies",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1483412266i/865.jpg",
+      "review": [
+        {
+          "id": "de0be86b-4ef0-49ce-80ed-47296936a093",
+          "name": "Saori",
+          "comment": "dfghjk"
+        }
+      ]
+    },
+    {
+      "id": "3f80d790-dab1-457b-8ef8-c71fea55c645",
+      "description": "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different, and far more satisfying, listening to our hearts, of recognizing opportunity and learning to read the omens strewn along life's path, and, most importantly, to follow our dreams.\n",
+      "bookName": "The Book Thief",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1411852091i/24280.jpg",
       "review": []
+    },
+    {
+      "id": "510f7d77-a02d-44f9-9351-2946c1dca677",
+      "description": "Scarlett O'Hara, the beautiful, spoiled daughter of a well-to-do Georgia plantation owner, must use every means at her disposal to claw her way out of the poverty she finds herself in after Sherman's.",
+      "bookName": "Gone with the Wind",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1551144577i/18405.jpg",
+      "review": []
+    },
+    {
+      "id": "9c5bd9c9-a211-4f87-8038-e9a246bed05d",
+      "description": "This book expand your understanding of Gone with the Wind. Read through letters about the story and people.",
+      "bookName": "Gone with the Wind Letters",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1337331017i/1129283.jpg",
+      "review": [
+        {
+          "id": "60c54105-2445-49c0-9e19-af30aa9c07f7",
+          "name": "Saori Wu",
+          "comment": "These letters are fascinating and reveal a humorous, insightful personality of the author of Gone with the Wind. Unfortunately, this edition was published in the 1970s and thus does not include Mitchell's correspondence with Benjamin Mays, nor her correspondence with Hattie McDaniel. Despite this, I loved reading this collection."
+        },
+        {
+          "id": "ee747a3f-30dd-4be3-b86b-aec4ce96b308",
+          "name": "Alex",
+          "comment": "with Benjamin Mays, nor her correspondence with Hattie McDaniel. Despite this, I loved reading this collection."
+        }
+      ]
     }
   ]
 }

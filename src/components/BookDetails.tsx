@@ -19,6 +19,7 @@ import {
   deleteReview,
   editBook,
   editReview,
+  removeFavorite,
 } from "../slice/bookSlice";
 import TextArea from "antd/es/input/TextArea";
 
@@ -51,12 +52,12 @@ export default function BookDetails({
   book,
   showSubBtn,
 }: BookModalProps) {
+  const { id, bookName, image, description, review } = book;
   const [editing, setEditing] = useState(false);
-
   const [editingReviewIndex, setEditingReviewIndex] = useState<null | string>(
     null
   );
-  const { id, bookName, image, description, review } = book;
+
   const [form] = Form.useForm();
   const [descriptionForm] = Form.useForm();
 
@@ -73,6 +74,7 @@ export default function BookDetails({
           await axios.delete(`${BASE_URL}/${id}`);
 
           dispatch(deleteBook(id));
+          dispatch(removeFavorite(id));
 
           message.success(`${bookName} is removed successfully!`);
         } catch (error) {
@@ -82,7 +84,7 @@ export default function BookDetails({
     });
   }
 
-  async function handleOk() {
+  async function handleSaveDescription() {
     if (editing) {
       try {
         const updatedBook = {
@@ -227,7 +229,7 @@ export default function BookDetails({
                   }}
                 />
               </Form.Item>
-              <Button onClick={handleOk} type="primary">
+              <Button onClick={handleSaveDescription} type="primary">
                 OK
               </Button>
             </div>
@@ -255,7 +257,6 @@ export default function BookDetails({
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 18 }}
         form={form}
-        name="reviews"
         style={{ maxWidth: 600 }}
         autoComplete="off"
         initialValues={{
@@ -272,10 +273,6 @@ export default function BookDetails({
                   <Card
                     size="small"
                     title={`Review ${field.name + 1}`}
-                    bodyStyle={{
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
                     key={field.key}
                     extra={
                       showSubBtn && (
@@ -297,55 +294,62 @@ export default function BookDetails({
                       )
                     }
                   >
-                    <Form.Item label="Name" name={[field.name, "name"]}>
-                      <Input
-                        disabled={
-                          editingReviewIndex !==
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <Form.Item label="Name" name={[field.name, "name"]}>
+                        <Input
+                          disabled={
+                            editingReviewIndex !==
+                            form.getFieldValue("items")[index].id
+                          }
+                          style={{
+                            color:
+                              editingReviewIndex !==
+                              form.getFieldValue("items")[index]?.id
+                                ? "black"
+                                : "inherit",
+                          }}
+                        />
+                      </Form.Item>
+                      <Form.Item label="Comment" name={[field.name, "comment"]}>
+                        <TextArea
+                          disabled={
+                            editingReviewIndex !==
+                            form.getFieldValue("items")[index].id
+                          }
+                          style={{
+                            color:
+                              editingReviewIndex !==
+                              form.getFieldValue("items")[index]?.id
+                                ? "black"
+                                : "inherit",
+                          }}
+                          autoSize
+                        />
+                      </Form.Item>
+                      {showSubBtn && (
+                        <Button
+                          type="primary"
+                          style={{ alignSelf: "end" }}
+                          disabled={
+                            (editingReviewIndex !== null &&
+                              editingReviewIndex !==
+                                form.getFieldValue("items")[index].id) ||
+                            editing
+                          }
+                          onClick={() => handleAddOrEditReview(field)}
+                        >
+                          {editingReviewIndex ===
                           form.getFieldValue("items")[index].id
-                        }
-                        style={{
-                          color:
-                            editingReviewIndex !==
-                            form.getFieldValue("items")[index]?.id
-                              ? "black"
-                              : "inherit",
-                        }}
-                      />
-                    </Form.Item>
-                    <Form.Item label="Comment" name={[field.name, "comment"]}>
-                      <TextArea
-                        disabled={
-                          editingReviewIndex !==
-                          form.getFieldValue("items")[index].id
-                        }
-                        style={{
-                          color:
-                            editingReviewIndex !==
-                            form.getFieldValue("items")[index]?.id
-                              ? "black"
-                              : "inherit",
-                        }}
-                        autoSize
-                      />
-                    </Form.Item>
-                    {showSubBtn && (
-                      <Button
-                        type="primary"
-                        style={{ alignSelf: "end" }}
-                        disabled={
-                          (editingReviewIndex !== null &&
-                            editingReviewIndex !==
-                              form.getFieldValue("items")[index].id) ||
-                          editing
-                        }
-                        onClick={() => handleAddOrEditReview(field)}
-                      >
-                        {editingReviewIndex ===
-                        form.getFieldValue("items")[index].id
-                          ? "Save"
-                          : "Edit"}
-                      </Button>
-                    )}
+                            ? "Save"
+                            : "Edit"}
+                        </Button>
+                      )}
+                    </div>
                   </Card>
                 ))}
 
